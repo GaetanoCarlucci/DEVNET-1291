@@ -19,7 +19,7 @@ variable "organization" {
 variable "ssh_user" {
   type        = string
   description = "SSH Username for node login."
-  default = 'iksadmin'
+  default = "iksadmin"
 }
 variable "ssh_key" {
   type        = string
