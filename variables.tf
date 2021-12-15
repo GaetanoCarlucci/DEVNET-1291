@@ -14,7 +14,7 @@ variable "endpoint" {
 variable "organization" {
   type        = string
   description = "Organization Name"
-  organizzation = "default"
+  default = "default"
 }
 variable "ssh_user" {
   type        = string
