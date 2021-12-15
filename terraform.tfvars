@@ -1,6 +1,3 @@
-organization = "default"
-ssh_user = "iksadmin"
-
 tags = [
   {
     "key" : "managed_by"

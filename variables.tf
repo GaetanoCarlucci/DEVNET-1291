@@ -14,10 +14,12 @@ variable "endpoint" {
 variable "organization" {
   type        = string
   description = "Organization Name"
+  organizzation = 'default'
 }
 variable "ssh_user" {
   type        = string
   description = "SSH Username for node login."
+  default = 'iksadmin'
 }
 variable "ssh_key" {
   type        = string
