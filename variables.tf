@@ -27,5 +27,12 @@ variable "ssh_key" {
 }
 variable "tags" {
   type    = list(map(string))
-  default = []
+  default = [ {
+    "key" : "managed_by"
+    "value" : "Terraform"
+  },
+  {
+    "key" : "owner"
+    "value" : "gcarlucc"
+  }]
 }
