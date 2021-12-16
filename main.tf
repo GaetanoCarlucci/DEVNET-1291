@@ -12,7 +12,7 @@ module "terraform-intersight-iks" {
 # Kubernetes Cluster Profile  Adjust the values as needed.
   cluster = {
     name                = "iksterraformk8scluster"
-    action              = "Deploy"
+    action              = "Unassigned"
     wait_for_completion = true
     worker_nodes        = 1
     load_balancers      = 1
@@ -145,5 +145,6 @@ module "terraform-intersight-iks" {
   
 #Wait for cluster to come up and then outpt the kubeconfig, if successful
 output "kube_config" {
-	value = module.terraform-intersight-iks.module.cluster_profile.intersight_kubernetes_cluster_profile.kubeprofaction.kube_config[0].kube_config
+	#value = module.terraform-intersight-iks.module.cluster_profile.intersight_kubernetes_cluster_profile.kubeprofaction.kube_config[0].kube_config
+	value = module.terraform-intersight-iks
 }
