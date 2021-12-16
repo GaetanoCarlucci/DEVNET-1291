@@ -142,15 +142,6 @@ module "terraform-intersight-iks" {
   tags         = var.tags
 }
  
-data "intersight_kubernetes_cluster" "kubeconfig" {
-  name = var.cluster_names["iksterraformk8scluster"]
-}
-	
-provider "kubernetes" {
-
-  host                   = yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).clusters[0].cluster.server
-  cluster_ca_certificate = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).clusters[0].cluster.certificate-authority-data)
-  client_certificate     = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).users[0].user.client-certificate-data)
-  client_key             = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).users[0].user.client-key-data)
-} 
-
+#Wait for cluster to come up and then outpt the kubeconfig, if successful
+output "kube_config" {
+	value = module.terraform-intersight-iks.module.cluster_profile.intersight_kubernetes_cluster_profile.kubeprofaction.kube_config[0].kube_config
