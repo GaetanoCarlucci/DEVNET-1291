@@ -145,5 +145,5 @@ module "terraform-intersight-iks" {
   
 #Wait for cluster to come up and then outpt the kubeconfig, if successful
 output "kube_config" {
-	value = terraform-intersight-iks.kubeprofaction.kube_config[0].kube_config
+	value = iksterraformk8scluster.kubeprofaction.kube_config[0].kube_config
 }
