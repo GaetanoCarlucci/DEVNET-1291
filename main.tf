@@ -141,3 +141,9 @@ module "terraform-intersight-iks" {
   organization = var.organization
   tags         = var.tags
 }
+  
+  
+#Wait for cluster to come up and then outpt the kubeconfig, if successful
+output "kube_config" {
+	value = terraform-intersight-iks.kubeprofaction.kube_config[0].kube_config
+}
