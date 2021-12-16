@@ -141,8 +141,3 @@ module "terraform-intersight-iks" {
   organization = var.organization
   tags         = var.tags
 }
- 
-resource "local_file" "kubeconfig" {
-    content     = base64decode(module.terraform-intersight-iks.k8s_cluster_moid)
-    filename = "${path.module}/kubeconfig.yaml"
-}
