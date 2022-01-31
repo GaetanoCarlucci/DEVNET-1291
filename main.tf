@@ -109,8 +109,8 @@ module "terraform-intersight-iks" {
     {
     use_existing = true
     createNew = false
-    #addonPolicyName = "iksuiaddon"
-    addonName            = "iksuiaddon"
+    addonPolicyName = "iksuiaddon"
+    #addonName            = "iksuiaddon"
     #description       = "SMM Policy"
     #upgradeStrategy  = "AlwaysReinstall"
     #installStrategy  = "InstallOnly"
