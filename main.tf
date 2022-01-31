@@ -91,16 +91,15 @@ module "terraform-intersight-iks" {
 # Infrastructure Configuration Policy (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   infraConfigPolicy = {
     use_existing = false
-    platformType = "vCenter"
-    #targetName   = "Cluster"
+    platformType = "esxi"
+    targetName   = "10.58.21.128"
     policyName   = "iksuiinfra2"
     description  = "terraform vcenter"
     interfaces   = ["Vm Network"]
-    # vcTargetName   = optional(string)
     vcClusterName      = "Cluster"
     vcDatastoreName     = "datastore1"
     vcResourcePoolName = "Intersight"
-    # vcPassword      = optional(string)
+    vcPassword         = "12345"
   }
 
 # Addon Profile and Policies (To create new change "createNew" to 'true' and uncomment variables and modify them to meet your needs.)
