@@ -36,30 +36,28 @@ module "terraform-intersight-iks" {
 
 # Sysconfig Policy (UI Reference NODE OS Configuration) (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   sysconfig = {
-    use_existing = true
+    use_existing = false
     name         = "iksuinodeos"
-    # domain_name  = "rich.ciscolabs.com"
-    # timezone     = "America/New_York"
-    # ntp_servers  = ["10.101.128.15"]
-    # dns_servers  = ["10.101.128.15"]
+    domain_name  = "rmlab.local"
+    timezone     = "Europe/Rome"
+    ntp_servers  = ["ntp.esl.cisco.com"]
+    dns_servers  = ["173.37.87.157"]
   }
 
 # Kubernetes Network CIDR (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   k8s_network = {
-    use_existing = true
+    use_existing = false
     name         = "iksuipoolnw"
-
-    ######### Below are the default settings.  Change if needed. #########
-    # pod_cidr     = "100.65.0.0/16"
-    # service_cidr = "100.64.0.0/24"
-    # cni          = "Calico"
+    pod_cidr     = "100.65.0.0/16"
+    service_cidr = "100.64.0.0/24"
+    cni          = "Calico"
   }
 
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
-    useExisting = true
+    useExisting = false
     policyName     = "iksuik8sver"
-    iksVersionName = "1.19.15-iks.3"
+    iksVersionName = "1.19.15-iks.5" 
   }
 
 # Trusted Registry Policy (To create new change "use_existing" to 'false' and set "create_new' to 'true' uncomment variables and modify them to meet your needs.)
@@ -73,19 +71,21 @@ module "terraform-intersight-iks" {
 # Runtime Policy (To create new change "use_existing" to 'false' and set "create_new' to 'true' uncomment variables and modify them to meet your needs.)
 # Set both variables to 'false' if this policy is not needed.
   runtime_policy = {
-    use_existing = true
+    use_existing = false
     create_new   = false
     name                 = "iksuicontainer"
-    # http_proxy_hostname  = "t"
-    # http_proxy_port      = 80
-    # http_proxy_protocol  = "http"
-    # http_proxy_username  = null
-    # http_proxy_password  = null
-    # https_proxy_hostname = "t"
-    # https_proxy_port     = 8080
-    # https_proxy_protocol = "https"
-    # https_proxy_username = null
-    # https_proxy_password = null
+    http_proxy_hostname  = "proxy.esl.cisco.com"
+    http_proxy_port      = 80
+    http_proxy_protocol  = "http"
+    http_proxy_username  = null
+    http_proxy_password  = null
+    https_proxy_hostname = "proxy.esl.cisco.com"
+    https_proxy_port     = 80
+    https_proxy_protocol = "https"
+    https_proxy_username = null
+    https_proxy_password = null
+    docker_no_proxy = ["100.65.0.0/16","100.64.0.0/24","*.local","localhost","127.0.0.1"]
+    
   }
 
 # Infrastructure Configuration Policy (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
