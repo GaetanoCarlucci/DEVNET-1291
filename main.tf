@@ -95,7 +95,7 @@ module "terraform-intersight-iks" {
     #targetName   = "Cluster"
     policyName   = "iksuiinfra2"
     description  = "terraform vcenter"
-    interfaces   = ["Vm Network]
+    interfaces   = ["Vm Network"]
     # vcTargetName   = optional(string)
     vcClusterName      = "Cluster"
     vcDatastoreName     = "datastore1"
