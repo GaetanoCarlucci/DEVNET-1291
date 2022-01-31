@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">=v1.1.2"
+  required_version = ">=0.14.5"
 
   required_providers {
     intersight = {
