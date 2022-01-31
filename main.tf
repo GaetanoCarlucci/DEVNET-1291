@@ -90,16 +90,16 @@ module "terraform-intersight-iks" {
 
 # Infrastructure Configuration Policy (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   infraConfigPolicy = {
-    use_existing = true
-    # platformType = "iwe"
-    # targetName   = "falcon"
+    use_existing = false
+    platformType = "vcenter"
+    #targetName   = "Cluster"
     policyName   = "iksuiinfra2"
-    # description  = "Test Policy"
-    # interfaces   = ["iwe-guests"]
+    description  = "terraform vcenter"
+    interfaces   = ["Vm Network]
     # vcTargetName   = optional(string)
-    # vcClusterName      = optional(string)
-    # vcDatastoreName     = optional(string)
-    # vcResourcePoolName = optional(string)
+    vcClusterName      = "Cluster"
+    vcDatastoreName     = "datastore1"
+    vcResourcePoolName = "Intersight"
     # vcPassword      = optional(string)
   }
 
@@ -130,11 +130,11 @@ module "terraform-intersight-iks" {
 
 # Worker Node Instance Type (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   instance_type = {
-    use_existing = true
+    use_existing = false
     name         = "iksuiinst"
-    # cpu          = 4
-    # memory       = 16386
-    # disk_size    = 40
+    cpu          = 4
+    memory       = 16386
+    disk_size    = 40
   }
 
 # Organization and Tag Information
