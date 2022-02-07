@@ -90,7 +90,7 @@ module "terraform-intersight-iks" {
 
 # Infrastructure Configuration Policy (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   infraConfigPolicy = {
-    use_existing = true
+    use_existing = false
     platformType = "esxi"
     targetName   = "10.58.21.128"
     policyName   = "iksuiinfra2"
