@@ -25,7 +25,7 @@ module "terraform-intersight-iks" {
 
 # IP Pool Information (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   ip_pool = {
-    use_existing        = true
+    use_existing        = false
     name                = "iksterraformpool"
     ip_starting_address = "10.58.21.142"
     ip_pool_size        = "8"
@@ -36,7 +36,7 @@ module "terraform-intersight-iks" {
 
 # Sysconfig Policy (UI Reference NODE OS Configuration) (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   sysconfig = {
-    use_existing = true
+    use_existing = false
     name         = "iksuinodeos"
     domain_name  = "rmlab.local"
     timezone     = "Europe/Rome"
@@ -46,7 +46,7 @@ module "terraform-intersight-iks" {
 
 # Kubernetes Network CIDR (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   k8s_network = {
-    use_existing = true
+    use_existing = false
     name         = "iksuipoolnw"
     pod_cidr     = "100.65.0.0/16"
     service_cidr = "100.64.0.0/24"
@@ -55,7 +55,7 @@ module "terraform-intersight-iks" {
 
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
-    useExisting = true
+    useExisting = false
     policyName     = "iksuik8sver"
     iksVersionName = "1.20.14-iks.0" 
   }
@@ -129,7 +129,7 @@ module "terraform-intersight-iks" {
 
 # Worker Node Instance Type (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   instance_type = {
-    use_existing = true
+    use_existing = false
     name         = "iksuiinst"
     cpu          = 4
     memory       = 16386
