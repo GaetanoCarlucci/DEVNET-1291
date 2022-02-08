@@ -95,7 +95,7 @@ module "terraform-intersight-iks" {
     targetName   = "10.58.21.128"
     policyName   = "iksuiinfra2"
     description  = "terraform vcenter"
-    interfaces   = ["Vm Network"]
+    interfaces   = ["VM Network"]
     vcClusterName      = "Cluster"
     vcDatastoreName     = "datastore1"
     vcResourcePoolName = "Intersight"
